@@ -7,6 +7,7 @@ import 'package:fk_mengaji/page/list_video_hijaiyah.dart';
 import 'package:fk_mengaji/page/list_video_tajwid.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -28,35 +29,21 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
-  // final listImage = [
-  //   'assets/gambar1.jpg',
-  //   'assets/gambar2.jpg',
-  //   'assets/gambar3.jpg',
-  //   'assets/gambar4.jpg',
-  //   'assets/gambar5.jpg',
-  // ];
+  final image = [
+    'assets/gambar1.jpg',
+    'assets/gambar2.jpg',
+    'assets/gambar3.jpg',
+    'assets/gambar4.jpg',
+    'assets/gambar5.jpg',
+    'assets/gambar6.jpg',
+    'assets/gambar7.jpg',
+    'assets/gambar8.jpg',
+  ];
 
-  final listImage = [
-    Image.asset(
-      'assets/gambar1.jpg',
-      fit: BoxFit.fitHeight,
-    ),
-    Image.asset(
-      'assets/gambar2.jpg',
-      fit: BoxFit.fitHeight,
-    ),
-    Image.asset(
-      'assets/gambar3.jpg',
-      fit: BoxFit.fitHeight,
-    ),
-    Image.asset(
-      'assets/gambar4.jpg',
-      fit: BoxFit.fitHeight,
-    ),
-    Image.asset(
-      'assets/gambar5.jpg',
-      fit: BoxFit.fitHeight,
-    ),
+  final imageArticle = [
+    'assets/artikel1.png',
+    'assets/artikel2.png',
+    'assets/artikel3.png',
   ];
 
   @override
@@ -149,33 +136,21 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
-            // Container(
-            //   height: 180,
-            //   child: ListView.builder(
-            //     scrollDirection: ,
-            //       itemCount: listImage.length,
-            //       itemBuilder: (context, index) {
-            //         return Container(
-            //           height: 150,
-            //           width: double.infinity,
-            //           color: ColorApp.black,
-            //           // child: Image.asset(listImage[index]),
-            //         );
-            //       }),
-            // ),
             Container(
-              height: 400,
-              width: 100,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(10)),
-              child: CarouselSlider(
-                  items: listImage,
-                  options: CarouselOptions(
-                      aspectRatio: 0.2,
-                      enlargeCenterPage: true,
-                      scrollDirection: Axis.horizontal,
-                      autoPlay: true)),
-            ),
+                child: CarouselSlider(
+              options: CarouselOptions(),
+              items: image
+                  .map((item) => Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Center(
+                            child: ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child:
+                              Image.asset(item, fit: BoxFit.cover, width: 1000),
+                        )),
+                      ))
+                  .toList(),
+            )),
             SizedBox(
               height: 20,
             ),
@@ -187,12 +162,17 @@ class _HomePageState extends State<HomePage> {
               height: 15,
             ),
             ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 500),
+              constraints: BoxConstraints(maxHeight: 350),
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: 3,
                 itemBuilder: (context, index) {
                   return Column(
-                    children: [article(), Divider()],
+                    children: [
+                      article(
+                        index: index,
+                      ),
+                      Divider()
+                    ],
                   );
                 },
               ),
@@ -247,34 +227,72 @@ class _HomePageState extends State<HomePage> {
 }
 
 class article extends StatelessWidget {
-  const article({
-    Key? key,
-  }) : super(key: key);
+  article({
+    required this.index,
+    super.key,
+  });
+
+  int index;
+
+  final linkArticle = [
+    'https://rsudkertosono.nganjukkab.go.id/web2/artikel/sejarah-kedokteran-islam-dan-pengobatan-di-dunia',
+    'https://www.republika.co.id/berita/n10z1a/perkembangan-kedokteran-islam',
+    'https://himpuh.or.id/blog/detail/69/deretan-ulama-kedokteran-islam-yang-berjasa-untuk-dunia'
+  ];
+
+  final titleArticle = [
+    'Sejarah Kedokteran Islam dan Pengobatan di Dunia',
+    'Perkembangan Kedokteran Islam',
+    'Deretan Ulama Kedokteran Islam yang Berjasa untuk Dunia'
+  ];
+
+  final imageArticle = [
+    'https://rsudkertosono.nganjukkab.go.id/web2/assets/images/d544594cc346821a029f5d500f64174d.png',
+    'https://static.republika.co.id/uploads/images/inpicture_slide/ilustrasi-_140215135105-259.jpg',
+    'https://s3.ap-southeast-3.amazonaws.com/xitcdn-himpuh/1585905671_sMjJWRSkIMl7ltXCP1NI4XafBtXNi01YbL3g6nfs.jpg',
+  ];
+
+  Future<void> _launchUrl(Uri _url) async {
+    if (!await launchUrl(_url)) {
+      throw 'Could not launch $_url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 7,
-          child: Text(
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            style: FontStyle.titleArticle,
+    return InkWell(
+      child: Row(
+        children: [
+          Expanded(
+            flex: 7,
+            child: Text(
+              titleArticle[index],
+              style: FontStyle.titleArticle,
+            ),
           ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Expanded(
-          flex: 3,
-          child: Container(
-            height: 100,
-            width: 80,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10), color: ColorApp.green),
+          SizedBox(
+            width: 10,
           ),
-        )
-      ],
+          Expanded(
+            flex: 3,
+            child: Container(
+              height: 100,
+              width: 80,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image.network(
+                  imageArticle[index],
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+      onTap: () {
+        Uri _url = Uri.parse(linkArticle[index]);
+        _launchUrl(_url);
+      },
     );
   }
 }

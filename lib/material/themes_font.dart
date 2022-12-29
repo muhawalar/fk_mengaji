@@ -9,7 +9,7 @@ class FontStyle {
   );
 
   static TextStyle heading = GoogleFonts.jaldi(
-    fontSize: 18,
+    fontSize: 20,
     color: ColorApp.black,
   );
 
