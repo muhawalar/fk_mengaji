@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "516122457760",
+    "project_id": "fk-mengaji-59208",
+    "storage_bucket": "fk-mengaji-59208.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516122457760:android:c4b9f56f62da31fb41fbc5",
+        "android_client_info": {
+          "package_name": "com.example.fk_mengaji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516122457760-adjlv3ajpbhin9mkalog29gdeqd1pl98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu7G1hLKFXOBfITbiyfrcbltGAp4dYofA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516122457760-adjlv3ajpbhin9mkalog29gdeqd1pl98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
