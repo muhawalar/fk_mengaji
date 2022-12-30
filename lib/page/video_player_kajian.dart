@@ -2,40 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:fk_mengaji/material/themes_font.dart';
 
-class VideoPlayerTajwid extends StatefulWidget {
-  VideoPlayerTajwid({super.key, this.index});
+class VideoPlayerKajian extends StatefulWidget {
+  VideoPlayerKajian({super.key, this.index});
 
   final int? index;
 
   @override
-  State<VideoPlayerTajwid> createState() => _VideoPlayerTajwidState(index!);
+  State<VideoPlayerKajian> createState() => _VideoPlayerKajianState(index!);
 }
 
-class _VideoPlayerTajwidState extends State<VideoPlayerTajwid> {
+class _VideoPlayerKajianState extends State<VideoPlayerKajian> {
   late int index;
-  _VideoPlayerTajwidState(int index) {
+  _VideoPlayerKajianState(int index) {
     this.index = index;
   }
 
   late YoutubePlayerController _controller;
 
-  List videoMenu2 = [
-    'https://www.youtube.com/watch?v=2m60NTTcmgs',
-    'https://www.youtube.com/watch?v=09e0wnyYsTs&t=1s',
-    'https://www.youtube.com/watch?v=ygeQ_3OO3oc',
+  List videoMenu4 = [
+    'https://www.youtube.com/watch?v=Lcc6CvSsrjM',
+    'https://www.youtube.com/watch?v=a741aWES5A0',
+    'https://www.youtube.com/watch?v=eEM8J9dLCNA',
   ];
 
   List descVideo = [
-    'Persembahan Tafaqquh Online untuk ummat | wajib belajar ini dulu (SEBELUM CABANG ILMU TAJWID YANG LAIN) - Ustadz Hardi Damri, Lc',
-    'Belajar Membaca Alquran: Ilmu Tajwid - Nun Sukun dan Tanwin - Ustadz Muhammad Ulin Nuha al-Hafidz Banyak di antara kita mungkin masih belum bisa melafadzkan Tajwid alquran dengan benar. Imam Ibnul Jazari menjelaskan:\n “Tajwid adalah membaca dengan membaguskan pelafalannya, yang terhindar dari keburukan pelafalan dan keburukan maknanya, serta membaca dengan maksimal tingkat kebenarannya dan kebagusannya” Berikut ini video belajar ilmu tajwid lengkap beserta hukum bacaan tajwid dalam al-Quran. Mudah mudahan dapat memberikan faedah kepada para pemirsa ketika mempraktikannya dalam membaca al-quran',
-    'Pada program ngaji yuk! kali ini, kita akan belajar Tajwid tentang hukum nun sukun atau tanwin. Bersama ustadzah Nabila Abdul Rahim Bayan.',
+    'Bagaimana hubungan tentang ilmu kedokteran saat ini dengan fiqh kedokteran yang ada. Apakah islam juga mengatur tentang Fiqh Kedokteran juga? jawabnya iya. Karena Islam megatur dan mencakup seluruh kehidupan manusia dari mulai jasmani hingga rohani.Ustadz dr. Raehul Bahraen insya Allah akan menjelaskan tentang kesehatan dalam islam dan fiqh kedokteran. Hal ini menjadi wajib kita teliti dan kita pelajari. Karena sejatinya kesehatan dan pengobatan adalah suatu hal yang penting bagi semua insan manusia.Maka kami persembahkan untuk seluruh kaum muslimin sebuah kajian yang mengupas dalam tentang Kesehatan Islam dan Fiqh Kedokteran.',
+    '',
+    'Ingin Belajar Fiqih dalam genggaman ?silahkan download Aplikasi SEKOLAH FIQIH di Playstore: https://play.google.com/store/apps/de...'
   ];
-
   final videoURL = 'https://www.youtube.com/watch?v=Vmw7ne8bDXY';
 
   @override
   void initState() {
-    final videoID = YoutubePlayer.convertUrlToId(videoMenu2[index]);
+    final videoID = YoutubePlayer.convertUrlToId(videoMenu4[index]);
     _controller = YoutubePlayerController(
         initialVideoId: videoID!, flags: YoutubePlayerFlags(autoPlay: false));
     super.initState();

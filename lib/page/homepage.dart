@@ -4,6 +4,8 @@ import 'package:fk_mengaji/material/themes_color.dart';
 import 'package:fk_mengaji/material/themes_font.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fk_mengaji/page/list_video_hijaiyah.dart';
+import 'package:fk_mengaji/page/list_video_kajian.dart';
+import 'package:fk_mengaji/page/list_video_tahsin.dart';
 import 'package:fk_mengaji/page/list_video_tajwid.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -209,7 +211,13 @@ class _HomePageState extends State<HomePage> {
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return index == 0 ? ListVideoHijaiyah() : ListVideoTajwid();
+                return index == 0
+                    ? ListVideoHijaiyah()
+                    : index == 1
+                        ? ListVideoTajwid()
+                        : index == 2
+                            ? ListVideoTahsin()
+                            : ListVideoKajian();
               },
             ));
           },
