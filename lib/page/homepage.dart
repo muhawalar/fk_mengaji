@@ -53,6 +53,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: ColorApp.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: ColorApp.white,
         title: Text(
           'Assalamualaikum, Akhi',
@@ -198,14 +199,14 @@ class _HomePageState extends State<HomePage> {
             width: 72,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: ColorApp.green.withOpacity(0.6)),
+                color: ColorApp.green.withOpacity(0.3)),
             child: Image.asset(
               icon,
               height: 50,
               width: 50,
-              scale: 10,
+              scale: 5,
               // fit: BoxFit.scaleDown,
-              color: ColorApp.white,
+              // color: ColorApp.white,
             ),
           ),
           onTap: () {
