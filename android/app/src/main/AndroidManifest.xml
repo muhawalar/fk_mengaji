@@ -2,7 +2,7 @@
     package="com.example.fk_mengaji">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="fk_mengaji"
+        android:label="FK-UMI Mengaji"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

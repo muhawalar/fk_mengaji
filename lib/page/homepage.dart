@@ -40,6 +40,13 @@ class _HomePageState extends State<HomePage> {
     'assets/gambar6.jpg',
     'assets/gambar7.jpg',
     'assets/gambar8.jpg',
+    'assets/gambar9.jpg',
+    'assets/gambar10.jpg',
+    'assets/gambar11.jpg',
+    'assets/gambar12.jpg',
+    'assets/gambar13.jpg',
+    'assets/gambar14.jpg',
+    'assets/gambar15.jpg',
   ];
 
   final imageArticle = [
@@ -117,20 +124,19 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 menu(
-                    icon: 'assets/hijaiyah.png',
-                    title: 'Huruf Hijaiyah',
+                    icon: 'assets/menu1.png',
+                    title: 'Al-Quran & Terjemahan',
                     index: 0),
-                menu(icon: 'assets/tajwid.png', title: 'Tajwid', index: 1),
-                menu(icon: 'assets/tahsin.png', title: 'Tahsin', index: 2),
-                menu(
-                    icon: 'assets/kajian.png', title: 'Kajian Fiqih', index: 3),
+                menu(icon: 'assets/menu2.png', title: 'Doa Harian', index: 1),
+                menu(icon: 'assets/menu3.png', title: 'Tahsin', index: 2),
+                menu(icon: 'assets/menu4.png', title: 'Kajian Fiqih', index: 3),
                 // menu(),
                 // menu(),
                 // menu(),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 15,
             ),
             Text(
               'Gallery',
@@ -141,17 +147,18 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
                 child: CarouselSlider(
-              options: CarouselOptions(),
+              options: CarouselOptions(autoPlay: true, height: 300),
               items: image
                   .map((item) => Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Center(
-                            child: ClipRRect(
-                          borderRadius: BorderRadius.circular(6),
-                          child:
-                              Image.asset(item, fit: BoxFit.cover, width: 1000),
-                        )),
-                      ))
+                      height: 300,
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Center(
+                          child: ClipRRect(
+                        borderRadius: BorderRadius.circular(6),
+                        child: Image.asset(item, fit: BoxFit.cover
+                            // width: 1000,
+                            ),
+                      ))))
                   .toList(),
             )),
             SizedBox(
@@ -205,7 +212,7 @@ class _HomePageState extends State<HomePage> {
               height: 50,
               width: 50,
               scale: 5,
-              // fit: BoxFit.scaleDown,
+
               // color: ColorApp.white,
             ),
           ),
@@ -226,9 +233,16 @@ class _HomePageState extends State<HomePage> {
         SizedBox(
           height: 5,
         ),
-        Text(
-          title,
-          style: FontStyle.menu,
+        Container(
+          margin: EdgeInsets.zero,
+          height: 50,
+          width: 72,
+          child: Center(
+            child: Text(
+              title,
+              style: FontStyle.menu,
+            ),
+          ),
         )
       ],
     );
