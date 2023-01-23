@@ -49,6 +49,7 @@ class ListVideoTahsin extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
           itemCount: videoMenu3.length,
           itemBuilder: (context, index) {
             return video(
@@ -60,6 +61,40 @@ class ListVideoTahsin extends StatelessWidget {
         ));
   }
 
+  Column levelOfVideo() {
+    return Column(
+      // mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Text(
+              'Level 1',
+              style: FontStyle.subContent,
+              // textAlign: TextAlign.start,
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 12,
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: videoMenu3.length,
+            itemBuilder: (context, index) {
+              return video(
+                  index: index,
+                  context: context,
+                  thumbnail: thumbnailMenu3[index],
+                  title: titleVideoMenu3[index]);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget video(
       {required String thumbnail,
       required String title,
@@ -67,6 +102,7 @@ class ListVideoTahsin extends StatelessWidget {
       BuildContext? context}) {
     return InkWell(
       child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 10,

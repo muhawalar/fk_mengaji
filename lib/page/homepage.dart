@@ -234,14 +234,13 @@ class _HomePageState extends State<HomePage> {
           height: 5,
         ),
         Container(
-          margin: EdgeInsets.zero,
+          alignment: Alignment.topCenter,
           height: 50,
           width: 72,
-          child: Center(
-            child: Text(
-              title,
-              style: FontStyle.menu,
-            ),
+          child: Text(
+            title,
+            style: FontStyle.menu,
+            textAlign: TextAlign.start,
           ),
         )
       ],
