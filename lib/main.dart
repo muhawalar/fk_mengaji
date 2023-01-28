@@ -1,4 +1,5 @@
 import 'package:fk_mengaji/page/detail_video.dart';
+import 'package:fk_mengaji/page/list_surah.dart';
 import 'package:fk_mengaji/page/list_video_hijaiyah.dart';
 import 'package:fk_mengaji/page/homepage.dart';
 import 'package:fk_mengaji/page/video_player_hijaiyah.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: HomePage(),
     );
   }
 }

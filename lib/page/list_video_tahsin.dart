@@ -49,49 +49,56 @@ class ListVideoTahsin extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: videoMenu3.length,
+          itemCount: 3,
           itemBuilder: (context, index) {
-            return video(
-                index: index,
-                context: context,
-                thumbnail: thumbnailMenu3[index],
-                title: titleVideoMenu3[index]);
+            return levelOfVideo(context: context, index: index);
+            // video(
+            //     index: index,
+            //     context: context,
+            //     thumbnail: thumbnailMenu3[index],
+            //     title: titleVideoMenu3[index]);
           },
         ));
   }
 
-  Column levelOfVideo() {
-    return Column(
-      // mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          flex: 1,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: Text(
-              'Level 1',
-              style: FontStyle.subContent,
-              // textAlign: TextAlign.start,
+  SizedBox levelOfVideo({required BuildContext context, required int index}) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height + 120,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              color: Colors.grey.shade200,
+              child: Center(
+                child: Text(
+                  'Level ' + (index + 1).toString(),
+                  style: FontStyle.subContent,
+                  // textAlign: TextAlign.start,
+                ),
+              ),
             ),
           ),
-        ),
-        Expanded(
-          flex: 12,
-          child: ListView.builder(
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: videoMenu3.length,
-            itemBuilder: (context, index) {
-              return video(
-                  index: index,
-                  context: context,
-                  thumbnail: thumbnailMenu3[index],
-                  title: titleVideoMenu3[index]);
-            },
+          Expanded(
+            flex: 12,
+            child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: videoMenu3.length,
+              itemBuilder: (context, index) {
+                return video(
+                    index: index,
+                    context: context,
+                    thumbnail: thumbnailMenu3[index],
+                    title: titleVideoMenu3[index]);
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -127,14 +134,10 @@ class ListVideoTahsin extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            // subtitle: Text(
-            //   'Subtitle',
-            //   style: FontStyle.menu,
-            // ),
           ),
           Divider(
             thickness: 1,
-          )
+          ),
         ],
       ),
       onTap: () {

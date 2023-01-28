@@ -50,15 +50,75 @@ class ListVideoKajian extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
-          itemCount: videoMenu4.length,
+          itemCount: 1,
           itemBuilder: (context, index) {
-            return video(
-                index: index,
-                context: context,
-                thumbnail: thumbnailMenu4[index],
-                title: titleVideoMenu4[index]);
+            return levelOfVideo(context: context, index: index);
+            // video(
+            //     index: index,
+            //     context: context,
+            //     thumbnail: thumbnailMenu4[index],
+            //     title: titleVideoMenu4[index]);
           },
         ));
+  }
+
+  SizedBox levelOfVideo({required BuildContext context, required int index}) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height + 120,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              color: Colors.grey.shade200,
+              child: Center(
+                child: Text(
+                  "Kajian",
+                  style: FontStyle.subContent,
+                  // textAlign: TextAlign.start,
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 12,
+            child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: videoMenu4.length,
+              itemBuilder: (context, index) {
+                return video(
+                    index: index,
+                    context: context,
+                    thumbnail: thumbnailMenu4[index],
+                    title: titleVideoMenu4[index]);
+              },
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: double.infinity,
+            height: 50,
+            color: Colors.grey.shade200,
+            child: Center(
+              child: Text(
+                "Pertanyaan",
+                style: FontStyle.subContent,
+                // textAlign: TextAlign.start,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 50,
+          )
+        ],
+      ),
+    );
   }
 
   Widget video(

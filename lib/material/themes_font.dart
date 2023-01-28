@@ -8,6 +8,11 @@ class FontStyle {
     color: ColorApp.black,
   );
 
+  static TextStyle titlehite = GoogleFonts.jaldi(
+    fontSize: 24,
+    color: ColorApp.white,
+  );
+
   static TextStyle heading = GoogleFonts.jaldi(
     fontSize: 20,
     color: ColorApp.black,
