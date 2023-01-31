@@ -259,21 +259,21 @@ class article extends StatelessWidget {
   int index;
 
   final linkArticle = [
-    'https://rsudkertosono.nganjukkab.go.id/web2/artikel/sejarah-kedokteran-islam-dan-pengobatan-di-dunia',
-    'https://www.republika.co.id/berita/n10z1a/perkembangan-kedokteran-islam',
-    'https://himpuh.or.id/blog/detail/69/deretan-ulama-kedokteran-islam-yang-berjasa-untuk-dunia'
+    'https://makassar.tribunnews.com/2021/06/17/fakultas-kedokteran-umi-bahas-gangguan-haid-dan-cara-mengatasinya',
+    'https://makassar.tribunnews.com/2022/06/04/milad-fk-umi-ke-3-dekade-international-conference-hingga-bakti-sosial-diselenggarakan',
+    'https://makassar.tribunnews.com/2022/04/09/direktur-rs-ibnu-sina-dr-nasruddin-andi-mappaware-resmi-dilantik-jadi-plt-dekan-fk-umi'
   ];
 
   final titleArticle = [
-    'Sejarah Kedokteran Islam dan Pengobatan di Dunia',
-    'Perkembangan Kedokteran Islam',
-    'Deretan Ulama Kedokteran Islam yang Berjasa untuk Dunia'
+    'Fakultas Kedokteran UMI Bahas Gangguan Haid dan Cara Mengatasinya',
+    'Milad FK UMI ke-3 Dekade, International Conference hingga Bakti Sosial Diselenggarakan',
+    'Direktur RS Ibnu Sina Dr Nasruddin Andi Mappaware Resmi Dilantik Jadi Plt Dekan FK UMI'
   ];
 
   final imageArticle = [
-    'https://rsudkertosono.nganjukkab.go.id/web2/assets/images/d544594cc346821a029f5d500f64174d.png',
-    'https://static.republika.co.id/uploads/images/inpicture_slide/ilustrasi-_140215135105-259.jpg',
-    'https://s3.ap-southeast-3.amazonaws.com/xitcdn-himpuh/1585905671_sMjJWRSkIMl7ltXCP1NI4XafBtXNi01YbL3g6nfs.jpg',
+    'https://cdn-2.tstatic.net/makassar/foto/bank/images/talkshow-gangguan-haid-dan-cara-mengatasinya-1762921.jpg',
+    'https://cdn-2.tstatic.net/makassar/foto/bank/images/Fakultas-Kedokteran-UMI-Kala-Berkunjung-Ke-Redaksi-Tribun-Timurcom.jpg',
+    'https://cdn-2.tstatic.net/makassar/foto/bank/images/Plt-Dekan-Fakultas-Kedokteran-Dr-Nasruddin-Andi-Mappaware.jpg',
   ];
 
   Future<void> _launchUrl(Uri _url) async {
