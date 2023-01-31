@@ -1,3 +1,4 @@
+import 'package:fk_mengaji/material/themes_color.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:fk_mengaji/material/themes_font.dart';
@@ -19,19 +20,29 @@ class _VideoPlayerTahsinState extends State<VideoPlayerTahsin> {
 
   late YoutubePlayerController _controller;
 
+  List thumbnailMenu3 = [
+    'assets/video/level1.png',
+    'assets/video/level2.png',
+    'assets/video/level3.png',
+    'assets/video/level4.png',
+    'assets/video/level5.png',
+  ];
+
   List videoMenu3 = [
-    'https://www.youtube.com/watch?v=na4zMsNNJIM',
-    'https://www.youtube.com/watch?v=Aih1YP-VEgo',
-    'https://www.youtube.com/watch?v=zdty_Af410U',
+    'https://youtu.be/CUspH8i3wmg',
+    'https://youtu.be/wQK9sESDVj0',
+    'https://youtu.be/V0T33fzBMfI',
+    'https://youtu.be/SvU_4RY7YwU',
+    'https://youtu.be/ljUZybJsE_k',
   ];
 
-  List descVideo = [
-    'Terimakasih atas kunjungannya.',
-    'AIUBA LATIHAN PENGUCAPAN HURUF MENGGUNAKAN HUKUM-HUKUM TAJWID. Video kali ini membahas latihan pengucapan huruf hijaiyah menggunakan hukum-hukum tajwid. Supaya terbiasa Dan lancar dalam membaca Al Quran. Video ini kami buat Dungan harapan bisa memberikan Banyak manfaat bagi sahabat yang belum begitu lancar dalam melafalkan huruf. ',
-    'Dari anak-anak sampai kakek-kakek boleh belajar dengan cara ini'
+  List titleVideoMenu3 = [
+    'Level 1',
+    'Level 2',
+    'Level 3',
+    'Level 4',
+    'Level 5',
   ];
-
-  final videoURL = 'https://www.youtube.com/watch?v=Vmw7ne8bDXY';
 
   @override
   void initState() {
@@ -44,6 +55,24 @@ class _VideoPlayerTahsinState extends State<VideoPlayerTahsin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: ColorApp.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_outlined,
+            color: ColorApp.black,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        centerTitle: true,
+        title: Text(
+          'Level ' + (index + 1).toString(),
+          style: FontStyle.title,
+        ),
+      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -52,25 +81,21 @@ class _VideoPlayerTahsinState extends State<VideoPlayerTahsin> {
               showVideoProgressIndicator: true,
               onReady: () => debugPrint('Ready'),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Deskripsi',
-                    style: FontStyle.heading,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    descVideo[index],
-                    style: FontStyle.menu,
-                  )
-                ],
-              ),
-            )
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Text(
+            //         'Level ' + (index + 1).toString(),
+            //         style: FontStyle.heading,
+            //       ),
+            //       SizedBox(
+            //         height: 10,
+            //       ),
+            //     ],
+            //   ),
+            // )
           ],
         ),
       ),

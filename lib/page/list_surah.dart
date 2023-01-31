@@ -6,17 +6,27 @@ import 'package:flutter/material.dart';
 class ListSurah extends StatelessWidget {
   ListSurah({super.key});
 
-  List namaSurah = [
-    'An-Nas',
-    'Al-Falaq',
-    'Al-Ikhlas',
-    'Al-Lahab',
-    'An-Nasr',
-    'Al-Kafirun',
-    'Al-Kausar',
-    'Al-Ma\'un',
-    'Quraisy',
-    'Al-Fil'
+  List logoSurah = [
+    'assets/surah/al-fil-logo.png',
+    'assets/surah/quraisy-logo.png',
+    'assets/surah/al-maun-logo.png',
+    'assets/surah/al-kausar-logo.png',
+    'assets/surah/al-kafirun-logo.png',
+    'assets/surah/an-nasr-logo.png',
+    'assets/surah/al-lahab-logo.png',
+    'assets/surah/al-ikhlas-logo.png',
+    'assets/surah/al-falaq-logo.png',
+    'assets/surah/an-nas-logo.png',
+    // 'An-Nas',
+    // 'Al-Falaq',
+    // 'Al-Ikhlas',
+    // 'Al-Lahab',
+    // 'An-Nasr',
+    // 'Al-Kafirun',
+    // 'Al-Kausar',
+    // 'Al-Ma\'un',
+    // 'Quraisy',
+    // 'Al-Fil'
   ];
 
   List jumlahAyat = ['6', '5', '4', '5', '3', '6', '3', '7', '4', '5'];
@@ -43,75 +53,78 @@ class ListSurah extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
-          itemCount: namaSurah.length,
+          itemCount: logoSurah.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                surah(
-                    context: context,
-                    index: index,
-                    jumlahAyat: jumlahAyat[index],
-                    namaSurah: namaSurah[index]),
+                surah(context: context, index: index, image: logoSurah[index]
+                    // jumlahAyat: jumlahAyat[index],
+                    // namaSurah: namaSurah[index]
+                    ),
               ],
             );
           },
         ));
   }
 
-  Column surah(
-      {required BuildContext context,
-      required int index,
-      required String namaSurah,
-      required String jumlahAyat}) {
+  Column surah({
+    required BuildContext context,
+    required int index,
+    required String image,
+    // required String namaSurah,
+    // required String jumlahAyat
+  }) {
     return Column(
       children: [
         InkWell(
           child: Container(
-            padding: EdgeInsets.only(left: 8),
-            height: 70,
-            width: double.infinity,
-            color: ColorApp.white,
-            child: ListTile(
-              leading: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      color: Color(0xFF1d3015),
-                      child: Center(
-                        child: Text(((index + 1).toString()),
-                            style:
-                                TextStyle(color: ColorApp.white, fontSize: 14)),
-                      ),
-                    ),
-                  ),
-                ],
+              height: 80,
+              width: double.infinity,
+              color: ColorApp.white,
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+              )
+              // ListTile(
+              //   leading: Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       ClipRRect(
+              //         borderRadius: BorderRadius.circular(15),
+              //         child: Container(
+              //           height: 30,
+              //           width: 30,
+              //           color: Color(0xFF1d3015),
+              //           child: Center(
+              //             child: Text(((index + 1).toString()),
+              //                 style:
+              //                     TextStyle(color: ColorApp.white, fontSize: 14)),
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              //   title: Text(
+              //     namaSurah,
+              //     style: TextStyle(fontSize: 16, color: ColorApp.black),
+              //   ),
+              //   subtitle: Text(
+              //     jumlahAyat + ' Ayat',
+              //     style: TextStyle(color: Colors.green, fontSize: 12),
+              //   ),
+              // ),
               ),
-              title: Text(
-                namaSurah,
-                style: TextStyle(fontSize: 16, color: ColorApp.black),
-              ),
-              subtitle: Text(
-                jumlahAyat + ' Ayat',
-                style: TextStyle(color: Colors.green, fontSize: 12),
-              ),
-            ),
-          ),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {
-                return DetailSurah(index: index, namaSurah: namaSurah);
+                return DetailSurah(index: index);
               },
             ));
           },
         ),
-        Divider(
-          thickness: 0.2,
-          height: 0.2,
+        SizedBox(
+          height: 1,
         )
       ],
     );

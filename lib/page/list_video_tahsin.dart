@@ -9,21 +9,27 @@ class ListVideoTahsin extends StatelessWidget {
   ListVideoTahsin({super.key});
 
   List thumbnailMenu3 = [
-    'assets/video/3.1.png',
-    'assets/video/3.2.png',
-    'assets/video/3.3.png',
+    'assets/video/level1.png',
+    'assets/video/level2.png',
+    'assets/video/level3.png',
+    'assets/video/level4.png',
+    'assets/video/level5.png',
   ];
 
   List videoMenu3 = [
-    'https://www.youtube.com/watch?v=na4zMsNNJIM',
-    'https://www.youtube.com/watch?v=Aih1YP-VEgo',
-    'https://www.youtube.com/watch?v=zdty_Af410U',
+    'https://youtu.be/CUspH8i3wmg',
+    'https://youtu.be/wQK9sESDVj0',
+    'https://youtu.be/V0T33fzBMfI',
+    'https://youtu.be/SvU_4RY7YwU',
+    'https://youtu.be/ljUZybJsE_k',
   ];
 
   List titleVideoMenu3 = [
-    'Belajar Pengucapan HURUF HIJAIYAH || Ustadz Abu Rabbani',
-    'AIUBA LATIHAN PENGUCAPAN HURUF MENGGUNAKAN HUKUM TAJWID (cara cepat bisa membaca Al Qur\'an',
-    'Bahasa Arab paling ringan (1) - Huruf Hijaiyyah part(1)',
+    'Level 1',
+    'Level 2',
+    'Level 3',
+    'Level 4',
+    'Level 5',
   ];
 
   @override
@@ -49,16 +55,50 @@ class ListVideoTahsin extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
-          itemCount: 3,
-          itemBuilder: (context, index) {
-            return levelOfVideo(context: context, index: index);
-            // video(
-            //     index: index,
-            //     context: context,
-            //     thumbnail: thumbnailMenu3[index],
-            //     title: titleVideoMenu3[index]);
-          },
+          itemCount: videoMenu3.length,
+          itemBuilder: (context, index) => InkWell(
+            child: Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 50,
+                  color: Colors.grey.shade200,
+                  child: Center(
+                    child: Text(
+                      'Level ' + (index + 1).toString(),
+                      style: FontStyle.subContent,
+                      // textAlign: TextAlign.start,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                )
+              ],
+            ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VideoPlayerTahsin(
+                      index: index,
+                    ),
+                  ));
+            },
+          ),
         ));
+
+    // ListView.builder(
+    //   itemCount: videoMenu3.length,
+    //   itemBuilder: (context, index) {
+    //     return levelOfVideo(context: context, index: index);
+    //     // video(
+    //     //     index: index,
+    //     //     context: context,
+    //     //     thumbnail: thumbnailMenu3[index],
+    //     //     title: titleVideoMenu3[index]);
+    //   },
+    // ));
   }
 
   SizedBox levelOfVideo({required BuildContext context, required int index}) {

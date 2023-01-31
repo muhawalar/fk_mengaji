@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         backgroundColor: ColorApp.white,
         title: Text(
-          'Assalamualaikum, Akhi',
+          'FK-UMI MENGAJI',
           style: FontStyle.heading,
         ),
         elevation: 0,
@@ -89,19 +89,20 @@ class _HomePageState extends State<HomePage> {
               alignment: Alignment.bottomLeft,
               children: [
                 Container(
-                  height: 200,
+                  height: 240,
                   width: double.infinity,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.asset(
-                      'assets/pagi.jpg',
+                      'assets/bg.jpg',
                       fit: BoxFit.cover,
                       // color: ColorApp.white.withOpacity(0.3),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.only(
+                      top: 8.0, bottom: 24, left: 8, right: 8),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

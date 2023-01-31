@@ -10,21 +10,36 @@ class ListVideoKajian extends StatelessWidget {
   ListVideoKajian({super.key});
 
   List thumbnailMenu4 = [
-    'assets/video/4.1.png',
-    'assets/video/4.2.png',
-    'assets/video/4.3.png',
+    'assets/video/video7.png',
+    'assets/video/video7.png',
+    'assets/video/video6.png',
+    'assets/video/video5.png',
+    'assets/video/video4.png',
+    'assets/video/video3.png',
+    'assets/video/video1.png',
+    'assets/video/video1.png',
   ];
 
   List videoMenu4 = [
-    'https://www.youtube.com/watch?v=Lcc6CvSsrjM',
-    'https://www.youtube.com/watch?v=a741aWES5A0',
-    'https://www.youtube.com/watch?v=eEM8J9dLCNA',
+    'https://youtu.be/B8OkrPdEDMk',
+    'https://youtu.be/opHRbWi5D3E',
+    'https://youtu.be/KIEU94Ey_A0',
+    'https://youtu.be/36EK0zHJDUo',
+    'https://youtu.be/30JwGTkF1ao',
+    'https://youtu.be/PRd_LUMfiBU',
+    'https://youtu.be/4FJt0Aypt1g',
+    'https://youtu.be/igmkdcQ5anI',
   ];
 
   List titleVideoMenu4 = [
-    'Kesehatan Islam dan Fikih Kedokteran - Ustadz Dr.Raehanul Bahraen',
-    'Fikih Kedokteran 01',
-    'Fiqih Kedokteran - Ust. Ahmad Sarwat, Lc. MA',
+    'Kajian Fiqih Ibadah FK UMI 203 November 2022',
+    'Kajian Fiqih Ibadah FK-UMI (23 September 2022)',
+    'Kajian Fiqih Ibadah 01 Agustus 2022',
+    'Kajian Fiqih Ibadah 30 Juni 2022',
+    'Kajian Fiqh Islam FK UMI Bersama Ustadz Syaiful Yusuf (Februari 2022)',
+    'Kajian Fiqih Ibadah (Maret 2022)',
+    'Kajian Fiqih Ibadah (29 Desember 2021)',
+    'Kajian Fiqih Ibadah FK-UMI November 2021',
   ];
 
   @override
@@ -52,35 +67,30 @@ class ListVideoKajian extends StatelessWidget {
         body: ListView.builder(
           itemCount: 1,
           itemBuilder: (context, index) {
-            return levelOfVideo(context: context, index: index);
-            // video(
-            //     index: index,
-            //     context: context,
-            //     thumbnail: thumbnailMenu4[index],
-            //     title: titleVideoMenu4[index]);
+            return levelOfVideo(
+              index: index,
+              context: context,
+            );
           },
         ));
   }
 
   SizedBox levelOfVideo({required BuildContext context, required int index}) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height + 120,
+      height: MediaQuery.of(context).size.height + 1500,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              width: double.infinity,
-              height: 50,
-              color: Colors.grey.shade200,
-              child: Center(
-                child: Text(
-                  "Kajian",
-                  style: FontStyle.subContent,
-                  // textAlign: TextAlign.start,
-                ),
+          Container(
+            width: double.infinity,
+            height: 50,
+            color: Colors.grey.shade200,
+            child: Center(
+              child: Text(
+                "Kajian",
+                style: FontStyle.subContent,
+                // textAlign: TextAlign.start,
               ),
             ),
           ),
@@ -98,24 +108,24 @@ class ListVideoKajian extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            color: Colors.grey.shade200,
-            child: Center(
-              child: Text(
-                "Pertanyaan",
-                style: FontStyle.subContent,
-                // textAlign: TextAlign.start,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 50,
-          )
+          // SizedBox(
+          //   height: 20,
+          // ),
+          // Container(
+          //   width: double.infinity,
+          //   height: 50,
+          //   color: Colors.grey.shade200,
+          //   child: Center(
+          //     child: Text(
+          //       "Pertanyaan",
+          //       style: FontStyle.subContent,
+          //       // textAlign: TextAlign.start,
+          //     ),
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: 50,
+          // )
         ],
       ),
     );

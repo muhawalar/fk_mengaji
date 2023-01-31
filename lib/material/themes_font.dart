@@ -38,12 +38,12 @@ class FontStyle {
   static TextStyle timeOfPray = GoogleFonts.jaldi(
     fontSize: 28,
     fontWeight: FontWeight.w400,
-    color: ColorApp.white,
+    color: ColorApp.black,
   );
 
   static TextStyle place = GoogleFonts.jaldi(
     fontSize: 20,
     fontWeight: FontWeight.w400,
-    color: ColorApp.white,
+    color: ColorApp.black,
   );
 }
