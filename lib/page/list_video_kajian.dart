@@ -82,18 +82,18 @@ class ListVideoKajian extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: double.infinity,
-            height: 50,
-            color: Colors.grey.shade200,
-            child: Center(
-              child: Text(
-                "Kajian",
-                style: FontStyle.subContent,
-                // textAlign: TextAlign.start,
-              ),
-            ),
-          ),
+          // Container(
+          //   width: double.infinity,
+          //   height: 50,
+          //   color: Colors.grey.shade200,
+          //   child: Center(
+          //     child: Text(
+          //       "Kajian",
+          //       style: FontStyle.subContent,
+          //       // textAlign: TextAlign.start,
+          //     ),
+          //   ),
+          // ),
           Expanded(
             flex: 12,
             child: ListView.builder(

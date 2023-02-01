@@ -4,6 +4,7 @@ import 'package:fk_mengaji/material/themes_color.dart';
 import 'package:fk_mengaji/material/themes_font.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fk_mengaji/page/list_surah.dart';
+import 'package:fk_mengaji/page/list_doa.dart';
 import 'package:fk_mengaji/page/list_video_hijaiyah.dart';
 import 'package:fk_mengaji/page/list_video_kajian.dart';
 import 'package:fk_mengaji/page/list_video_tahsin.dart';
@@ -224,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                 return index == 0
                     ? ListSurah()
                     : index == 1
-                        ? ListVideoTajwid()
+                        ? ListDoa()
                         : index == 2
                             ? ListVideoTahsin()
                             : ListVideoKajian();

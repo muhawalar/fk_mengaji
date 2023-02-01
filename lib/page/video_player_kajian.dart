@@ -19,17 +19,39 @@ class _VideoPlayerKajianState extends State<VideoPlayerKajian> {
 
   late YoutubePlayerController _controller;
 
-  List videoMenu4 = [
-    'https://www.youtube.com/watch?v=Lcc6CvSsrjM',
-    'https://www.youtube.com/watch?v=a741aWES5A0',
-    'https://www.youtube.com/watch?v=eEM8J9dLCNA',
+  List thumbnailMenu4 = [
+    'assets/video/video7.png',
+    'assets/video/video7.png',
+    'assets/video/video6.png',
+    'assets/video/video5.png',
+    'assets/video/video4.png',
+    'assets/video/video3.png',
+    'assets/video/video1.png',
+    'assets/video/video1.png',
   ];
 
-  List descVideo = [
-    'Bagaimana hubungan tentang ilmu kedokteran saat ini dengan fiqh kedokteran yang ada. Apakah islam juga mengatur tentang Fiqh Kedokteran juga? jawabnya iya. Karena Islam megatur dan mencakup seluruh kehidupan manusia dari mulai jasmani hingga rohani.Ustadz dr. Raehul Bahraen insya Allah akan menjelaskan tentang kesehatan dalam islam dan fiqh kedokteran. Hal ini menjadi wajib kita teliti dan kita pelajari. Karena sejatinya kesehatan dan pengobatan adalah suatu hal yang penting bagi semua insan manusia.Maka kami persembahkan untuk seluruh kaum muslimin sebuah kajian yang mengupas dalam tentang Kesehatan Islam dan Fiqh Kedokteran.',
-    '',
-    'Ingin Belajar Fiqih dalam genggaman ?silahkan download Aplikasi SEKOLAH FIQIH di Playstore: https://play.google.com/store/apps/de...'
+  List videoMenu4 = [
+    'https://youtu.be/B8OkrPdEDMk',
+    'https://youtu.be/opHRbWi5D3E',
+    'https://youtu.be/KIEU94Ey_A0',
+    'https://youtu.be/36EK0zHJDUo',
+    'https://youtu.be/30JwGTkF1ao',
+    'https://youtu.be/PRd_LUMfiBU',
+    'https://youtu.be/4FJt0Aypt1g',
+    'https://youtu.be/igmkdcQ5anI',
   ];
+
+  List titleVideoMenu4 = [
+    'Kajian Fiqih Ibadah FK UMI 203 November 2022',
+    'Kajian Fiqih Ibadah FK-UMI (23 September 2022)',
+    'Kajian Fiqih Ibadah 01 Agustus 2022',
+    'Kajian Fiqih Ibadah 30 Juni 2022',
+    'Kajian Fiqh Islam FK UMI Bersama Ustadz Syaiful Yusuf (Februari 2022)',
+    'Kajian Fiqih Ibadah (Maret 2022)',
+    'Kajian Fiqih Ibadah (29 Desember 2021)',
+    'Kajian Fiqih Ibadah FK-UMI November 2021',
+  ];
+
   final videoURL = 'https://www.youtube.com/watch?v=Vmw7ne8bDXY';
 
   @override
@@ -63,10 +85,10 @@ class _VideoPlayerKajianState extends State<VideoPlayerKajian> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    descVideo[index],
-                    style: FontStyle.menu,
-                  )
+                  // Text(
+                  //   descVideo[index],
+                  //   style: FontStyle.menu,
+                  // )
                 ],
               ),
             )
