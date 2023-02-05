@@ -14,17 +14,17 @@ class ListDoa extends StatelessWidget {
     'Doa Keluar Masjid',
     'Doa Masuk WC',
     'Doa Keluar WC',
-    'Doa Masuk WC',
-    'Doa Keluar WC',
+    'Doa Masuk Rumah',
+    'Doa Keluar Rumah',
   ];
 
   List imageDoa = [
-    'assets/doa/1.png',
-    'assets/doa/2.png',
-    'assets/doa/3.png',
-    'assets/doa/4.png',
-    'assets/doa/5.png',
-    'assets/doa/6.png',
+    'assets/doa1-logo.png',
+    'assets/doa2-logo.png',
+    'assets/doa3-logo.png',
+    'assets/doa4-logo.png',
+    'assets/doa5-logo.png',
+    'assets/doa6-logo.png',
   ];
 
   @override
@@ -50,38 +50,80 @@ class ListDoa extends StatelessWidget {
           ),
         ),
         body: ListView.builder(
-          itemCount: titleDoa.length,
-          itemBuilder: (context, index) => InkWell(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+          itemCount: imageDoa.length,
+          itemBuilder: (context, index) {
+            return Column(
               children: [
-                Container(
-                  width: double.infinity,
-                  height: 50,
-                  color: Colors.grey.shade200,
-                  child: Center(
-                    child: Text(
-                      titleDoa[index],
-                      style: FontStyle.subContent,
-                      textAlign: TextAlign.start,
+                surah(context: context, index: index, image: imageDoa[index]
+                    // jumlahAyat: jumlahAyat[index],
+                    // namaSurah: namaSurah[index]
                     ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                )
               ],
-            ),
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailDoa(
-                      index: index,
-                    ),
-                  ));
-            },
-          ),
+            );
+          },
         ));
+  }
+
+  Column surah({
+    required BuildContext context,
+    required int index,
+    required String image,
+    // required String namaSurah,
+    // required String jumlahAyat
+  }) {
+    return Column(
+      children: [
+        InkWell(
+          child: Container(
+              height: 50,
+              width: double.infinity,
+              color: ColorApp.white,
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+              )
+              // ListTile(
+              //   leading: Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       ClipRRect(
+              //         borderRadius: BorderRadius.circular(15),
+              //         child: Container(
+              //           height: 30,
+              //           width: 30,
+              //           color: Color(0xFF1d3015),
+              //           child: Center(
+              //             child: Text(((index + 1).toString()),
+              //                 style:
+              //                     TextStyle(color: ColorApp.white, fontSize: 14)),
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              //   title: Text(
+              //     namaSurah,
+              //     style: TextStyle(fontSize: 16, color: ColorApp.black),
+              //   ),
+              //   subtitle: Text(
+              //     jumlahAyat + ' Ayat',
+              //     style: TextStyle(color: Colors.green, fontSize: 12),
+              //   ),
+              // ),
+              ),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) {
+                return DetailDoa(index: index);
+              },
+            ));
+          },
+        ),
+        SizedBox(
+          height: 1,
+        )
+      ],
+    );
   }
 }

@@ -84,7 +84,37 @@ class ListSurah extends StatelessWidget {
               child: Image.asset(
                 image,
                 fit: BoxFit.cover,
-              )),
+              )
+              // ListTile(
+              //   leading: Column(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     crossAxisAlignment: CrossAxisAlignment.center,
+              //     children: [
+              //       ClipRRect(
+              //         borderRadius: BorderRadius.circular(15),
+              //         child: Container(
+              //           height: 30,
+              //           width: 30,
+              //           color: Color(0xFF1d3015),
+              //           child: Center(
+              //             child: Text(((index + 1).toString()),
+              //                 style:
+              //                     TextStyle(color: ColorApp.white, fontSize: 14)),
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              //   title: Text(
+              //     namaSurah,
+              //     style: TextStyle(fontSize: 16, color: ColorApp.black),
+              //   ),
+              //   subtitle: Text(
+              //     jumlahAyat + ' Ayat',
+              //     style: TextStyle(color: Colors.green, fontSize: 12),
+              //   ),
+              // ),
+              ),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(
               builder: (context) {

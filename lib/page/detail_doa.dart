@@ -28,7 +28,14 @@ class _DetailDoaState extends State<DetailDoa> {
     'assets/doa/6.png',
   ];
 
-  List sound = [];
+  List sound = [
+    'doa1.mp3',
+    'doa2.mp3',
+    'doa4.mp3',
+    'doa3.mp3',
+    'doa5.mp3',
+    'doa6.mp3',
+  ];
   @override
   int push = 0;
 

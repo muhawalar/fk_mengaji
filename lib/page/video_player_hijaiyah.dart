@@ -1,5 +1,6 @@
 import 'package:fk_mengaji/material/themes_font.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayerHijaiyah extends StatefulWidget {
@@ -47,10 +48,28 @@ class _VideoPlayerHijaiyahState extends State<VideoPlayerHijaiyah> {
       body: SafeArea(
         child: ListView(
           children: [
-            YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-              onReady: () => debugPrint('Ready'),
+            YoutubePlayerBuilder(
+              onEnterFullScreen: () {
+                
+                SystemChrome.setPreferredOrientations([
+                  DeviceOrientation.landscapeLeft,
+                  DeviceOrientation.landscapeRight
+                ]);
+              },
+              onExitFullScreen: () {
+                SystemChrome.setPreferredOrientations(
+                    [DeviceOrientation.portraitUp]);
+              },
+              player: YoutubePlayer(
+                controller: _controller,
+                showVideoProgressIndicator: true,
+                onReady: () => debugPrint('Ready'),
+              ),
+              builder: (context, player) {
+                return Column(
+                  children: [player],
+                );
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

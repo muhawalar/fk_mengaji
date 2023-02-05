@@ -1,5 +1,6 @@
 import 'package:fk_mengaji/material/themes_color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:fk_mengaji/material/themes_font.dart';
 
@@ -54,51 +55,71 @@ class _VideoPlayerTahsinState extends State<VideoPlayerTahsin> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: ColorApp.white,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_outlined,
-            color: ColorApp.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        centerTitle: true,
-        title: Text(
-          'Level ' + (index + 1).toString(),
-          style: FontStyle.title,
-        ),
-      ),
-      body: SafeArea(
-        child: ListView(
-          children: [
-            YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-              onReady: () => debugPrint('Ready'),
+    return YoutubePlayerBuilder(
+      player: YoutubePlayer(controller: _controller),
+      builder: (context, player) {
+        return Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: ColorApp.white,
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back_outlined,
+                color: ColorApp.black,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       Text(
-            //         'Level ' + (index + 1).toString(),
-            //         style: FontStyle.heading,
-            //       ),
-            //       SizedBox(
-            //         height: 10,
-            //       ),
-            //     ],
-            //   ),
-            // )
-          ],
-        ),
-      ),
+            centerTitle: true,
+            title: Text(
+              'Level ' + (index + 1).toString(),
+              style: FontStyle.title,
+            ),
+          ),
+          body: player,
+        );
+      },
     );
+
+    // Scaffold(
+    //   appBar: AppBar(
+    //     elevation: 0,
+    //     backgroundColor: ColorApp.white,
+    //     leading: IconButton(
+    //       icon: Icon(
+    //         Icons.arrow_back_outlined,
+    //         color: ColorApp.black,
+    //       ),
+    //       onPressed: () {
+    //         Navigator.pop(context);
+    //       },
+    //     ),
+    //     centerTitle: true,
+    //     title: Text(
+    //       'Level ' + (index + 1).toString(),
+    //       style: FontStyle.title,
+    //     ),
+    //   ),
+    //   body: YoutubePlayerBuilder(
+    //     builder: (context, player) {
+    //       return Scaffold(
+    //         body: ,
+    //       )
+    //       );
+    //     },
+    //     // onExitFullScreen: () {
+    //     //   SystemChrome.setPreferredOrientations([
+    //     //     DeviceOrientation.landscapeLeft,
+    //     //     DeviceOrientation.landscapeRight
+    //     //   ]);
+    //     // },
+    //     player: YoutubePlayer(
+    //       controller: _controller,
+    //       showVideoProgressIndicator: true,
+    //       onReady: () => debugPrint('Ready'),
+    //     ),
+    //   ),
+    // );
   }
 }

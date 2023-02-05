@@ -1,3 +1,4 @@
+import 'package:fk_mengaji/material/themes_color.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:fk_mengaji/material/themes_font.dart';
@@ -64,37 +65,68 @@ class _VideoPlayerKajianState extends State<VideoPlayerKajian> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          children: [
-            YoutubePlayer(
-              controller: _controller,
-              showVideoProgressIndicator: true,
-              onReady: () => debugPrint('Ready'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Deskripsi',
-                    style: FontStyle.heading,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  // Text(
-                  //   descVideo[index],
-                  //   style: FontStyle.menu,
-                  // )
-                ],
-              ),
-            )
-          ],
-        ),
+    return YoutubePlayerBuilder(
+      player: YoutubePlayer(
+        controller: _controller,
+        showVideoProgressIndicator: true,
+        onReady: () => debugPrint('Ready'),
       ),
+      builder: (context, player) {
+        return Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: ColorApp.white,
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back_outlined,
+                color: ColorApp.black,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            centerTitle: true,
+            title: Text(
+              'Kajian Fikih ',
+              style: FontStyle.title,
+            ),
+          ),
+          body: player,
+        );
+      },
     );
+
+    // Scaffold(
+    //   body: SafeArea(
+    //     child: ListView(
+    //       children: [
+    //         YoutubePlayer(
+    //           controller: _controller,
+    //           showVideoProgressIndicator: true,
+    //           onReady: () => debugPrint('Ready'),
+    //         ),
+    //         Padding(
+    //           padding: const EdgeInsets.all(8.0),
+    //           child: Column(
+    //             crossAxisAlignment: CrossAxisAlignment.start,
+    //             children: [
+    //               Text(
+    //                 'Deskripsi',
+    //                 style: FontStyle.heading,
+    //               ),
+    //               SizedBox(
+    //                 height: 10,
+    //               ),
+    //               // Text(
+    //               //   descVideo[index],
+    //               //   style: FontStyle.menu,
+    //               // )
+    //             ],
+    //           ),
+    //         )
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }

@@ -27,7 +27,7 @@ class _DetailSurahState extends State<DetailSurah> {
     'assets/surah/al-kafirun.png',
     'assets/surah/an-nasr.png',
     'assets/surah/al-lahab.png',
-    'assets/surah/al-Ikhlas.png',
+    'assets/surah/al-ikhlas.png',
     'assets/surah/al-falaq.png',
     'assets/surah/an-naas.png',
   ];
