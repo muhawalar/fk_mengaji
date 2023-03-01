@@ -7,6 +7,7 @@ import 'package:fk_mengaji/page/list_surah.dart';
 import 'package:fk_mengaji/page/list_doa.dart';
 import 'package:fk_mengaji/page/list_video_hijaiyah.dart';
 import 'package:fk_mengaji/page/list_video_kajian.dart';
+import 'package:fk_mengaji/page/list_video_podcast.dart';
 import 'package:fk_mengaji/page/list_video_tahsin.dart';
 import 'package:fk_mengaji/page/list_video_tajwid.dart';
 import 'package:flutter/material.dart';
@@ -139,6 +140,24 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  menu(
+                      icon: 'assets/menu5.png',
+                      title: 'Podcast Dakwah',
+                      index: 5),
+                  // menu(),
+                  // menu(),
+                  // menu(),
+                ],
+              ),
+            ),
+            SizedBox(
               height: 15,
             ),
             Text(
@@ -228,7 +247,9 @@ class _HomePageState extends State<HomePage> {
                         ? ListDoa()
                         : index == 2
                             ? ListVideoTahsin()
-                            : ListVideoKajian();
+                            : index == 3
+                                ? ListVideoKajian()
+                                : ListVideoPodcast();
               },
             ));
           },
@@ -243,7 +264,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             title,
             style: FontStyle.menu,
-            textAlign: TextAlign.start,
+            textAlign: TextAlign.center,
           ),
         )
       ],
