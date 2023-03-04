@@ -13,6 +13,7 @@ import 'package:fk_mengaji/page/list_video_tajwid.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:hijri/hijri_calendar.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -23,6 +24,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String clock = 'Clock Here';
+  DateTime now = DateTime.now();
+  String formattedDate =
+      DateFormat('dd MMMM yyyy', 'id_ID').format(DateTime.now());
+  var hijri = HijriCalendar.now();
+
+  // var hijri = new HijriCalendar.fromDate(DateTime.now());
+  // var formatHijri = new DateFormat.yMMMMd('ar_SA');
   late Timer? timer;
   @override
   void initState() {
@@ -35,27 +43,28 @@ class _HomePageState extends State<HomePage> {
   }
 
   final image = [
-    'assets/gambar1.jpg',
-    'assets/gambar2.jpg',
-    'assets/gambar3.jpg',
-    'assets/gambar4.jpg',
     'assets/gambar5.jpg',
     'assets/gambar6.jpg',
     'assets/gambar7.jpg',
-    'assets/gambar8.jpg',
-    'assets/gambar9.jpg',
-    'assets/gambar10.jpg',
     'assets/gambar11.jpg',
-    'assets/gambar12.jpg',
     'assets/gambar13.jpg',
     'assets/gambar14.jpg',
     'assets/gambar15.jpg',
+    'assets/gambar16.jpg',
+    'assets/gambar17.jpg',
+    'assets/gambar18.jpg',
+    'assets/gambar19.jpg',
+    'assets/gambar20.jpg',
+    'assets/gambar21.jpg',
+    'assets/gambar22.jpg',
+    'assets/gambar23.jpg',
+    'assets/gambar24.jpg',
+    'assets/gambar25.jpg',
   ];
 
   final imageArticle = [
     'assets/artikel1.png',
     'assets/artikel2.png',
-    'assets/artikel3.png',
   ];
 
   @override
@@ -112,6 +121,19 @@ class _HomePageState extends State<HomePage> {
                         clock,
                         style: FontStyle.timeOfPray,
                       ),
+                      Row(
+                        children: [
+                          Text(formattedDate),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text('|'),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text('${hijri.toFormat('dd MMMM yyyy')}')
+                        ],
+                      ),
                       Text(
                         'Makassar, Sulawesi Selatan',
                         style: FontStyle.place,
@@ -134,6 +156,7 @@ class _HomePageState extends State<HomePage> {
                 menu(icon: 'assets/menu2.png', title: 'Doa Harian', index: 1),
                 menu(icon: 'assets/menu3.png', title: 'Tahsin', index: 2),
                 menu(icon: 'assets/menu4.png', title: 'Kajian Fiqih', index: 3),
+
                 // menu(),
                 // menu(),
                 // menu(),
@@ -150,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                   menu(
                       icon: 'assets/menu5.png',
                       title: 'Podcast Dakwah',
-                      index: 5),
+                      index: 4),
                   // menu(),
                   // menu(),
                   // menu(),
@@ -194,9 +217,9 @@ class _HomePageState extends State<HomePage> {
               height: 15,
             ),
             ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 350),
+              constraints: BoxConstraints(maxHeight: 280),
               child: ListView.builder(
-                itemCount: 3,
+                itemCount: 2,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
@@ -283,19 +306,16 @@ class article extends StatelessWidget {
   final linkArticle = [
     'https://makassar.tribunnews.com/2021/06/17/fakultas-kedokteran-umi-bahas-gangguan-haid-dan-cara-mengatasinya',
     'https://makassar.tribunnews.com/2022/06/04/milad-fk-umi-ke-3-dekade-international-conference-hingga-bakti-sosial-diselenggarakan',
-    'https://makassar.tribunnews.com/2022/04/09/direktur-rs-ibnu-sina-dr-nasruddin-andi-mappaware-resmi-dilantik-jadi-plt-dekan-fk-umi'
   ];
 
   final titleArticle = [
     'Fakultas Kedokteran UMI Bahas Gangguan Haid dan Cara Mengatasinya',
     'Milad FK UMI ke-3 Dekade, International Conference hingga Bakti Sosial Diselenggarakan',
-    'Direktur RS Ibnu Sina Dr Nasruddin Andi Mappaware Resmi Dilantik Jadi Plt Dekan FK UMI'
   ];
 
   final imageArticle = [
     'https://cdn-2.tstatic.net/makassar/foto/bank/images/talkshow-gangguan-haid-dan-cara-mengatasinya-1762921.jpg',
     'https://cdn-2.tstatic.net/makassar/foto/bank/images/Fakultas-Kedokteran-UMI-Kala-Berkunjung-Ke-Redaksi-Tribun-Timurcom.jpg',
-    'https://cdn-2.tstatic.net/makassar/foto/bank/images/Plt-Dekan-Fakultas-Kedokteran-Dr-Nasruddin-Andi-Mappaware.jpg',
   ];
 
   Future<void> _launchUrl(Uri _url) async {

@@ -14,6 +14,11 @@ class ListVideoTahsin extends StatelessWidget {
     'assets/level_tahsin/level3.png',
     'assets/level_tahsin/level4.png',
     'assets/level_tahsin/level5.png',
+    'assets/level_tahsin/level6.png',
+    'assets/level_tahsin/level7.png',
+    'assets/level_tahsin/level8.png',
+    'assets/level_tahsin/level9.png',
+    'assets/level_tahsin/level10.png',
   ];
 
   @override
